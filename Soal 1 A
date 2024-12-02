@@ -1,0 +1,17 @@
+# Mendefinisikan konstanta pegas
+k = 60  # dalam N/m
+
+# Fungsi untuk menghitung gaya F(x) berdasarkan hukum Hooke
+def gaya_pegas(x):
+    return -k * x
+
+# Menentukan rentang x dari 0 hingga 0,5 meter dengan langkah 0,02 meter
+x = 0  # posisi awal
+x_max = 0.5  # posisi maksimum
+delta_x = 0.02  # langkah perhitungan
+
+# Menghitung dan menampilkan gaya pada setiap posisi x
+while x <= x_max:
+    F = gaya_pegas(x)
+    print(f'Posisi x = {x:.2f} meter, Gaya F(x) = {F:.2f} N')
+    x += delta_x
