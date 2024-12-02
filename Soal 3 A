@@ -1,0 +1,38 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Konstanta
+v0 = 50  # kecepatan awal (m/s)
+g = 9.8  # percepatan gravitasi (m/s^2)
+
+# Hitung waktu untuk mencapai tinggi maksimum
+t_max = v0 / g  # waktu untuk mencapai tinggi maksimum (s)
+
+# Hitung tinggi maksimum
+h_max = (v0**2) / (2 * g)  # tinggi maksimum (m)
+
+# Waktu total gerak (naik dan turun)
+t_total = 2 * t_max
+
+# Buat array waktu untuk plotting
+t = np.linspace(0, t_total, 500)
+
+# Rumus posisi sebagai fungsi waktu
+y = v0 * t - 0.5 * g * t**2
+
+# Plot grafik gerak benda
+plt.figure(figsize=(8, 6))
+plt.plot(t, y, label='Gerak Vertikal', color='blue')
+plt.axhline(0, color='black', linewidth=0.5, linestyle='--')
+plt.axvline(t_max, color='red', linestyle='--', label='Waktu Maksimum')
+plt.axhline(h_max, color='green', linestyle='--', label='Tinggi Maksimum')
+
+# Tambahkan label dan judul
+plt.title('Grafik Gerak Vertikal Benda')
+plt.xlabel('Waktu (s)')
+plt.ylabel('Ketinggian (m)')
+plt.legend()
+plt.grid()
+
+# Tampilkan grafik
+plt.show()
