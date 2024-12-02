@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import quad
+
+# Definisi gaya F(x)
+def gaya(x):
+    return 2*x**2 + 4*x + 2
+
+# Menghitung kerja dengan integral numerik (menggunakan scipy.integrate.quad)
+x1 = 0  # Posisi awal
+x2 = 30  # Posisi akhir
+kerja, error = quad(gaya, x1, x2)
+
+# Menampilkan hasil kerja
+print(f"Kerja yang dilakukan oleh gaya: {kerja:.2f} Joule")
+
+# Membuat array posisi x untuk plotting
+x_values = np.linspace(x1, x2, 500)
+f_values = gaya(x_values)
+
+# Menampilkan grafik gaya F(x) terhadap posisi x
+plt.plot(x_values, f_values, label="F(x) = 2x² + 4x + 2")
+plt.title("Grafik Gaya Tak Konstan F(x) terhadap Posisi x")
+plt.xlabel("Posisi x (meter)")
+plt.ylabel("Gaya F(x) (Newton)")
+plt.grid(True)
+plt.legend()
+plt.show()
